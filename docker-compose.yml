@@ -1,0 +1,34 @@
+services:
+  db:
+    image: postgres:15
+    container_name: rentaltoke-db
+    environment:
+      POSTGRES_DB: RentAltoke
+      POSTGRES_USER: Alex
+      POSTGRES_PASSWORD: xxxxxxx
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U Alex -d RentAltoke"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build: .
+    container_name: rentaltoke-backend
+    ports:
+      - "8081:8081"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/RentAltoke
+      SPRING_DATASOURCE_USERNAME: Alex
+      SPRING_DATASOURCE_PASSWORD: xxxxxxx
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  postgres_data:

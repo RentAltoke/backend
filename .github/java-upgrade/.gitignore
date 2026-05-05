@@ -1,0 +1,42 @@
+# ===============================
+# JAVA / SPRING BOOT
+# ===============================
+target/
+*.log
+*.class
+*.jar
+*.war
+
+# Maven
+.mvn/wrapper/maven-wrapper.jar
+
+# ===============================
+# IDEs
+# ===============================
+
+# VS Code
+.vscode/
+
+# IntelliJ
+.idea/
+*.iml
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# ===============================
+# SISTEMA OPERATIVO
+# ===============================
+.DS_Store
+Thumbs.db
+
+# ===============================
+# DOCKER
+# ===============================
+postgres_data/
+
+
+*.tmp
+*.swp
