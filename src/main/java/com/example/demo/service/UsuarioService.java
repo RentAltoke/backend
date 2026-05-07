@@ -19,4 +19,6 @@ public class UsuarioService {
         return repo.findAll();
     }
 
+    
+
 }

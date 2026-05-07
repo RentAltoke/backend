@@ -17,4 +17,8 @@ public class InquilinoService {
     public List<Inquilino> morosos() {
         return repo.findMorosos();
     }
+
+     public Inquilino guardar(Inquilino inquilino) {
+        return repo.save(inquilino);
+    }
 }

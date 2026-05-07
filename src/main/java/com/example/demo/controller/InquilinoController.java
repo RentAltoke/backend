@@ -25,4 +25,10 @@ public class InquilinoController {
     public List<Inquilino> morosos() {
         return service.morosos();
     }
+
+    @PostMapping
+    public Inquilino guardar(@RequestBody Inquilino inquilino) {
+        return service.guardar(inquilino);
+    }
+
 }
