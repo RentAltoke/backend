@@ -1,5 +1,4 @@
-package com.example.demo.repository;
-
+package com.example.demo.DTOs;
 import java.time.LocalDate;
 
 public interface ReciboResumenDTO {

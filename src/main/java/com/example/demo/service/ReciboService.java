@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.example.demo.repository.*;
 import java.util.List;
 import com.example.demo.entity.*;
+import com.example.demo.DTOs.*;
 
 @Service
 public class ReciboService {

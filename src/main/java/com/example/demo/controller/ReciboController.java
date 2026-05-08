@@ -3,7 +3,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.example.demo.service.*;
 import com.example.demo.entity.*;
-import com.example.demo.repository.ReciboResumenDTO;
+import com.example.demo.DTOs.*;
 
 import java.util.List;
 
