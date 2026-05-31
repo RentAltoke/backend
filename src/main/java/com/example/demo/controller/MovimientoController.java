@@ -23,20 +23,19 @@ public class MovimientoController {
         return service.listarTodos();
     }
 
-    // 🔹 Por unidad (ingresos)
+
     @GetMapping("/unidad/{id}")
     public List<Movimiento> porUnidad(@PathVariable Integer id) {
         return service.porUnidad(id);
     }
 
-    // 🔹 Por inmueble (gastos)
     @GetMapping("/inmueble/{id}")
     public List<Movimiento> porInmueble(@PathVariable Integer id) {
         return service.porInmueble(id);
     }
 
 
-    // 🔹 Resumen general
+
     @GetMapping("/resumen")
     public List<Object[]> resumen() {
         return service.resumen();

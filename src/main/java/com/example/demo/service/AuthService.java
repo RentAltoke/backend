@@ -53,10 +53,15 @@ public class AuthService {
                 .orElseThrow();
 
         boolean passwordCorrect =
-                passwordEncoder.matches(
-                        request.getPassword(),
-                        usuario.getPasswordHash()
-                );
+        request.getPassword()
+                .equals(usuario.getPasswordHash());
+       /*
+       boolean passwordCorrect =
+       passwordEncoder.matches(
+        request.getPassword(),
+        usuario.getPasswordHash()
+    );
+    */                 
 
         if (!passwordCorrect) {
             throw new RuntimeException("Password incorrecto");

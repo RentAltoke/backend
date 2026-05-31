@@ -14,20 +14,19 @@ import org.springframework.data.repository.query.Param;
 @Repository
 public interface MovimientoRepository extends JpaRepository<Movimiento, Integer> {
 
-    // 🔹 Todos los movimientos de una unidad (ingresos normalmente)
+
     @Query("SELECT m FROM Movimiento m WHERE m.unidad.id = :unidadId")
     List<Movimiento> findByUnidadId(@Param("unidadId") Integer unidadId);
 
-    // 🔹 Todos los movimientos de un inmueble (gastos normalmente)
+
     @Query("SELECT m FROM Movimiento m WHERE m.inmueble.id = :inmuebleId")
     List<Movimiento> findByInmuebleId(@Param("inmuebleId") Integer inmuebleId);
 
 
-    // 🔹 Resumen por tipo (INGRESO / GASTO)
     @Query("SELECT m.tipo, SUM(m.monto) FROM Movimiento m GROUP BY m.tipo")
     List<Object[]> resumen();
 
-    // 🔹 Resumen por inmueble
+
     @Query("""
         SELECT m.inmueble.id, SUM(m.monto)
         FROM Movimiento m
@@ -36,7 +35,7 @@ public interface MovimientoRepository extends JpaRepository<Movimiento, Integer>
     """)
     List<Object[]> resumenPorInmueble();
 
-    // 🔹 Resumen por unidad
+
     @Query("""
         SELECT m.unidad.id, SUM(m.monto)
         FROM Movimiento m
@@ -45,7 +44,7 @@ public interface MovimientoRepository extends JpaRepository<Movimiento, Integer>
     """)
     List<Object[]> resumenPorUnidad();
 
-    // 🔹 Movimientos por tipo (GASTO / INGRESO)
+
     List<Movimiento> findByTipo(TipoMovimiento tipo);
 
 @Query("""

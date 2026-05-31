@@ -4,8 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.example.demo.repository.*;
 import java.util.List;
 import com.example.demo.entity.*;
-import com.example.demo.enums.TipoMovimiento;
-import java.math.BigDecimal;
 
 @Service
 public class MovimientoService {
@@ -26,8 +24,6 @@ public class MovimientoService {
     private ReciboRepository reciboRepo;
 
 
-    
-    // 🔹 CONSULTAS
     public List<Movimiento> listarTodos() {
         return movimientoRepo.findAll();
     }

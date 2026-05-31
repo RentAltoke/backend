@@ -29,7 +29,7 @@ import java.util.Base64;
 
 @Service
 public class JwtUtil {
-
+    private static final long JWT_EXPIRATION = 31536000000L;
     private final String SECRET_KEY ="mi_clave_super_secreta_muy_larga_123456";
 
     public String extractUsername(String token) {
@@ -59,7 +59,7 @@ public class JwtUtil {
                 .setSubject(usuario.getEmail())
                 .setIssuedAt(new Date())
                 .setExpiration(
-                        new Date(System.currentTimeMillis() + 1000 * 60 * 60)
+                    new Date(System.currentTimeMillis() + JWT_EXPIRATION)
                 )
                 .signWith(getSignKey(), SignatureAlgorithm.HS256)
                 .compact();
