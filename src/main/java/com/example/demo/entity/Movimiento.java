@@ -21,7 +21,7 @@ public class Movimiento {
     private TipoMovimiento tipo;
 
     private String categoria;
-    private BigDecimal monto;
+    private double monto;
 
     @ManyToOne
     @JoinColumn(name = "cuenta_id")
