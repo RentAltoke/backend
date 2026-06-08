@@ -19,6 +19,7 @@ public class InquilinoService {
     }
 
      public Inquilino guardar(Inquilino inquilino) {
+
         return repo.save(inquilino);
     }
 }

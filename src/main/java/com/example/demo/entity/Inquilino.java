@@ -7,9 +7,6 @@ import lombok.Data;
 @Entity
 @Table(name = "inquilinos")
 @Data
-
-
-
 public class Inquilino {
 
     @Id
@@ -25,4 +22,5 @@ public class Inquilino {
     private String telefono;
     private String email;
     private Boolean activo;
+
 }

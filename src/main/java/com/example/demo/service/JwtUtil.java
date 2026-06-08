@@ -3,10 +3,6 @@ import com.example.demo.repository.*;
 import com.example.demo.entity.*;
 import com.example.demo.repository.*;
 import com.example.demo.service.*;
-
-
-//import dsw.sigconbackend.model.Modulo;
-//import dsw.sigconbackend.model.Usuario;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;

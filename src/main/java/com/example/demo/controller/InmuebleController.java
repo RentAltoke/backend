@@ -2,7 +2,7 @@ package com.example.demo.controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.example.demo.repository.*;
-import com.example.demo.service.UnidadService;
+import com.example.demo.service.*;
 import com.example.demo.entity.*;
 import java.util.List;
 
@@ -11,6 +11,9 @@ import java.util.List;
 @CrossOrigin("*")
 public class InmuebleController {
 
+    @Autowired
+    private InmuebleService inmuebleService;
+    
     @Autowired
     private InmuebleRepository inmuebleRepo;
 
@@ -40,6 +43,15 @@ public class InmuebleController {
     public Inmueble obtenerPorId(@PathVariable Integer id) {
         return inmuebleRepo.findById(id)
             .orElseThrow(() -> new RuntimeException("Inmueble no encontrado"));
-}
+    }
+
+    @PostMapping
+    public Inmueble guardar(@RequestBody Inmueble inmueble) {
+        return inmuebleService.guardar(inmueble);
+    }
+
+
+
+
 
 }
