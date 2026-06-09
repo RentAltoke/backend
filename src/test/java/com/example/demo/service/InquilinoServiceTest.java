@@ -12,30 +12,21 @@ import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class InquilinoServiceTest {
-
     @Mock
     private InquilinoRepository repo;
-
     @InjectMocks
     private InquilinoService service;
-
     @BeforeEach
     void setup() {
         MockitoAnnotations.openMocks(this);
     }
-
     @Test
     void listarDebeRetornarTodosLosInquilinos() {
-
         Inquilino i1 = new Inquilino();
         Inquilino i2 = new Inquilino();
-
         when(repo.findAll()).thenReturn(List.of(i1, i2));
-
         List<Inquilino> resultado = service.listar();
-
         assertEquals(2, resultado.size());
-
         verify(repo, times(1)).findAll();
     }
 }
