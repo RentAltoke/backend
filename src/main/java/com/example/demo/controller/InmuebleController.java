@@ -50,8 +50,4 @@ public class InmuebleController {
         return inmuebleService.guardar(inmueble);
     }
 
-
-
-
-
 }

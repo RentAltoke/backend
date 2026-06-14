@@ -21,36 +21,26 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 class ReporteControllerTest {
-
-    @Autowired
-    private MockMvc mockMvc;
-
-    @MockitoBean
-    private MovimientoRepository movimientoRepository;
-
-    @MockitoBean
-    private InquilinoRepository inquilinoRepository;
-
-    @Test
-    void debeGenerarPdfCorrectamente() throws Exception {
+        @Autowired
+        private MockMvc mockMvc;
+        @MockitoBean
+        private MovimientoRepository movimientoRepository;
+        @MockitoBean
+        private InquilinoRepository inquilinoRepository;
+        @Test
+        void debeGenerarPdfCorrectamente() throws Exception {
         Inquilino inquilino = new Inquilino();
         inquilino.setId(1);
         inquilino.setNombreCompleto("Carlos Ruiz");
-
         Movimiento movimiento = new Movimiento();
         movimiento.setMonto(1000.0);
         movimiento.setDescripcion("Pago alquiler");
         movimiento.setTipo(TipoMovimiento.INGRESO);
-
-        when(inquilinoRepository.findById(1))
-                .thenReturn(Optional.of(inquilino));
-
-        when(movimientoRepository.findMovimientosByInquilino(1))
-                .thenReturn(List.of(movimiento));
-
+        when(inquilinoRepository.findById(1)).thenReturn(Optional.of(inquilino));
+        when(movimientoRepository.findMovimientosByInquilino(1)).thenReturn(List.of(movimiento));
         mockMvc.perform(get("/api/reportes/caja/1"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_PDF))
                 .andExpect(header().exists("Content-Disposition"));
-    }
+}
 }
